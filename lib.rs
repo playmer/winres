@@ -408,7 +408,7 @@ impl WindowsResource {
         writeln!(f, "}}\n}}")?;
         if let Some(ref icon) = self.icon {
             let name_id = self.icon_id.as_ref().map(String::as_str).unwrap_or("1");
-            writeln!(f, "{} ICON \"{}\"", escape_string(name_id), escape_string(icon))?;
+            writeln!(f, "Icon_{} ICON \"{}\"", escape_string(name_id), escape_string(icon))?;
         }
         if let Some(e) = self.version_info.get(&VersionInfo::FILETYPE) {
             if let Some(manf) = self.manifest.as_ref() {
